@@ -24,6 +24,10 @@ public class Usuario {
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date dataCadastro;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuarioTipoId", referencedColumnName = "usuario_tipo_id")
+    private UsuarioTipo usuarioTipoId;
+
     /*** CONSTRUTOR VAZIO ***/
     public Usuario() {
 
