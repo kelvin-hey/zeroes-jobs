@@ -1,5 +1,6 @@
 package br.com.zeroesjobs.entity;
 
+import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
@@ -26,6 +27,9 @@ public class Candidato {
 
     @Column(nullable = true, length = 64)
     private String fotoPerfil;
+
+    @OneToMany(targetEntity = Competencias.class, cascade = CascadeType.ALL, mappedBy = "candidato")
+    private List<Competencias> competencias;
 
     /*** CONSTRUTOR VAZIO ***/
     public Candidato() {
