@@ -15,6 +15,12 @@ public class Candidato {
     @MapsId
     private Usuario usuarioId;
 
+    @Column(nullable = true, length = 64)
+    private String fotoPerfil;
+
+    @OneToMany(targetEntity = Competencias.class, cascade = CascadeType.ALL, mappedBy = "candidato")
+    private List<Competencias> competencias;
+
     /*** DADOS DO CANDIDATO ***/
     private String nome;
     private String sobreNome;
@@ -24,12 +30,6 @@ public class Candidato {
     private String cpf;
     private String tipoTrabalho;
     private String curriculo;
-
-    @Column(nullable = true, length = 64)
-    private String fotoPerfil;
-
-    @OneToMany(targetEntity = Competencias.class, cascade = CascadeType.ALL, mappedBy = "candidato")
-    private List<Competencias> competencias;
 
     /*** CONSTRUTOR VAZIO ***/
     public Candidato() {
