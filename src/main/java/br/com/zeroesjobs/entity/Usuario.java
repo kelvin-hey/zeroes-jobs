@@ -6,12 +6,12 @@ import jakarta.validation.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "users")
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
+    private int usuarioId;
 
     @Column(unique = true)
     private String email;
@@ -25,7 +25,7 @@ public class Usuario {
     private Date dataCadastro;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuarioTipoId", referencedColumnName = "usuario_tipo_id")
+    @JoinColumn(name = "usuarioTipoId", referencedColumnName = "usuarioTipoId")
     private UsuarioTipo usuarioTipoId;
 
     /*** CONSTRUTOR VAZIO ***/
@@ -34,21 +34,22 @@ public class Usuario {
     }
 
     /*** CONSTRUTOR ***/
-    public Usuario(int idUsuario, String email, String senha, boolean ativo, Date dataCadastro) {
-        this.idUsuario = idUsuario;
+    public Usuario(int usuarioId, String email, String senha, boolean ativo, Date dataCadastro, UsuarioTipo usuarioTipoId) {
+        this.usuarioId = usuarioId;
         this.email = email;
         this.senha = senha;
         this.ativo = ativo;
         this.dataCadastro = dataCadastro;
+        this.usuarioTipoId = usuarioTipoId;
     }
 
     /*** GETTERS / SETTERS ***/
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public String getEmail() {
@@ -83,14 +84,23 @@ public class Usuario {
         this.dataCadastro = dataCadastro;
     }
 
+    public UsuarioTipo getUsuarioTipoId() {
+        return usuarioTipoId;
+    }
+
+    public void setUsuarioTipoId(UsuarioTipo usuarioTipoId) {
+        this.usuarioTipoId = usuarioTipoId;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
-                "idUsuario=" + idUsuario +
+                "usuarioId=" + usuarioId +
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
                 ", ativo=" + ativo +
                 ", dataCadastro=" + dataCadastro +
+                ", usuarioTipoId=" + usuarioTipoId +
                 '}';
     }
 }

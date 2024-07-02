@@ -14,16 +14,16 @@ public class Vaga {
     private Integer vagaId;
 
     @ManyToOne
-    @JoinColumn(name = "anunciante_id", referencedColumnName = "usuario_id")
+    @JoinColumn(name = "anuncianteId", referencedColumnName = "usuarioId")
     private Usuario anuncianteId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "vaga_localidade_id", referencedColumnName = "id")
-    private VagaLocalidade vagaLocalidade;
+    @JoinColumn(name = "vagaLocalidadeId", referencedColumnName = "Id")
+    private VagaLocalidade vagaLocalidadeId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "empresa_id", referencedColumnName = "id")
-    private Empresa vagaEmpresa;
+    @JoinColumn(name = "empresaId", referencedColumnName = "id")
+    private Empresa empresaId;
 
     @Transient
     private boolean estaAtiva;
@@ -48,11 +48,11 @@ public class Vaga {
     }
 
     /*** CONSTRUTOR PADRÃO ***/
-    public Vaga(Integer vagaId, Usuario anuncianteId, VagaLocalidade vagaLocalidade, Empresa vagaEmpresa, boolean estaAtiva, boolean estaSalva, String descricao, Date dataPublicada, String tituloVaga, String tipoVaga, String salario, String remota) {
+    public Vaga(Integer vagaId, Usuario anuncianteId, VagaLocalidade vagaLocalidadeId, Empresa empresaId, boolean estaAtiva, boolean estaSalva, String descricao, Date dataPublicada, String tituloVaga, String tipoVaga, String salario, String remota) {
         this.vagaId = vagaId;
         this.anuncianteId = anuncianteId;
-        this.vagaLocalidade = vagaLocalidade;
-        this.vagaEmpresa = vagaEmpresa;
+        this.vagaLocalidadeId = vagaLocalidadeId;
+        this.empresaId = empresaId;
         this.estaAtiva = estaAtiva;
         this.estaSalva = estaSalva;
         this.descricao = descricao;
@@ -80,20 +80,20 @@ public class Vaga {
         this.anuncianteId = anuncianteId;
     }
 
-    public VagaLocalidade getVagaLocalidade() {
-        return vagaLocalidade;
+    public VagaLocalidade getVagaLocalidadeId() {
+        return vagaLocalidadeId;
     }
 
-    public void setVagaLocalidade(VagaLocalidade vagaLocalidade) {
-        this.vagaLocalidade = vagaLocalidade;
+    public void setVagaLocalidadeId(VagaLocalidade vagaLocalidadeId) {
+        this.vagaLocalidadeId = vagaLocalidadeId;
     }
 
-    public Empresa getVagaEmpresa() {
-        return vagaEmpresa;
+    public Empresa getEmpresaId() {
+        return empresaId;
     }
 
-    public void setVagaEmpresa(Empresa vagaEmpresa) {
-        this.vagaEmpresa = vagaEmpresa;
+    public void setEmpresaId(Empresa empresaId) {
+        this.empresaId = empresaId;
     }
 
     public boolean isEstaAtiva() {
@@ -165,8 +165,8 @@ public class Vaga {
         return "Vaga{" +
                 "vagaId=" + vagaId +
                 ", anuncianteId=" + anuncianteId +
-                ", vagaLocalidade=" + vagaLocalidade +
-                ", vagaEmpresa=" + vagaEmpresa +
+                ", vagaLocalidadeId=" + vagaLocalidadeId +
+                ", empresaId=" + empresaId +
                 ", estaAtiva=" + estaAtiva +
                 ", estaSalva=" + estaSalva +
                 ", descricao='" + descricao + '\'' +

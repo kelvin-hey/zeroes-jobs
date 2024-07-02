@@ -3,7 +3,7 @@ package br.com.zeroesjobs.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "vaga"})})
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"usuarioId", "vaga"})})
 public class CandidatoSalvo {
 
     @Id
@@ -15,7 +15,7 @@ public class CandidatoSalvo {
     private Candidato usuarioId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "vaga", referencedColumnName = "vaga_id")
+    @JoinColumn(name = "vaga", referencedColumnName = "VagaId")
     private Vaga vaga;
 
     /*** CONSTRUTOR VAZIO ***/
