@@ -43,6 +43,11 @@ public class Recrutador {
         this.empresa = empresa;
     }
 
+    /*** CONSTRUTOR USUÁRIO ***/
+    public Recrutador(Usuario usuario) {
+        this.usuarioId = usuario;
+    }
+
     /*** GETTERS / SETTERS ***/
     public int getContaUsuarioId() {
         return contaUsuarioId;
