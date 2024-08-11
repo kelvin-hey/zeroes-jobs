@@ -18,6 +18,12 @@ Portal de Empregos desenvolvido utilizando Java juntamente com o Framework Sprin
 
 <br>
 
+<img height="26" src="https://shields.io/badge/⚙️-fcd535?style=flat-square"/> <img height="26" src="https://shields.io/badge/ARQUITETURA_DO_SISTEMA-fcd535?style=flat-square"/> 
+
+- `Modelo lógico do banco de dados`:
+
+<img src="https://raw.githubusercontent.com/kelvin-hey/zeroes-jobs/c053c0a34fa1d66001bbb2a0257ce0d768eb3add/src/main/resources/static/db/modelo_logico.png"/>
+
 <img height="26" src="https://shields.io/badge/⚙️-fcd535?style=flat-square"/> <img height="26" src="https://shields.io/badge/DEPENDÊNCIAS-fcd535?style=flat-square"/> 
 
 - `Spring WEB`
