@@ -22,7 +22,7 @@ public class Vaga {
     private VagaLocalidade vagaLocalidadeId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "empresaId", referencedColumnName = "id")
+    @JoinColumn(name = "empresaId", referencedColumnName = "Id")
     private Empresa empresaId;
 
     @Transient
