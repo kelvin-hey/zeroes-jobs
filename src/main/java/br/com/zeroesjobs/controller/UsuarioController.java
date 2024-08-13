@@ -4,6 +4,7 @@ import br.com.zeroesjobs.entity.Usuario;
 import br.com.zeroesjobs.entity.UsuarioTipo;
 import br.com.zeroesjobs.services.UsuarioService;
 import br.com.zeroesjobs.services.UsuarioTipoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
@@ -19,6 +20,7 @@ public class UsuarioController {
     private final UsuarioTipoService usuarioTipoService;
     private final UsuarioService usuarioService;
 
+    @Autowired
     public UsuarioController(UsuarioTipoService usuarioTipoService, UsuarioService usuarioService) {
         this.usuarioTipoService = usuarioTipoService;
         this.usuarioService = usuarioService;
@@ -27,8 +29,8 @@ public class UsuarioController {
     @GetMapping("/cadastrar")
     public String cadastrar(Model model) {
         List<UsuarioTipo> usuarioTipo = usuarioTipoService.getAll();
-        model.addAttribute("getAllTypes", usuarioTipo);
-        model.addAttribute("user", new Usuario());
+        model.addAttribute("getTipoUsuario", usuarioTipo);
+        model.addAttribute("usuario", new Usuario());
         return "cadastrar";
     }
 
@@ -37,12 +39,13 @@ public class UsuarioController {
         Optional<Usuario> optionalUsuario = usuarioService.getUsuarioEmail(usuario.getEmail());
         if (optionalUsuario.isPresent()) {
             model.addAttribute("erro", "O email já foi cadastrado");
-            List<UsuarioTipo> usuarioTipos = usuarioTipoService.getAll();
-            model.addAttribute("obterTodos", usuarioTipos);
+            List<UsuarioTipo> usuarioTipo = usuarioTipoService.getAll();
+            model.addAttribute("obterTodos", usuarioTipo);
             model.addAttribute("usuario", new Usuario());
             return "cadastrar";
         }
-        usuarioService.addNew(usuario);
+
+        usuarioService.adicionar(usuario);
         return "dashboard";
     }
 }
