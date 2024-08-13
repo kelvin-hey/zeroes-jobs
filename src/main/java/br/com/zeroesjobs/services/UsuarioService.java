@@ -45,6 +45,6 @@ public class UsuarioService {
     }
 
     public Optional<Usuario> getUsuarioEmail(String email) {
-        return usuarioRepository.procurarPorEmail(email);
+        return usuarioRepository.findByEmail(email);
     }
 }
