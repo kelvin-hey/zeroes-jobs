@@ -6,6 +6,6 @@ import org.springframework.stereotype.Controller;
 public class InicioController {
 
     public String inicio() {
-        return "Index";
+        return "index";
     }
 }
