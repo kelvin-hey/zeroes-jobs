@@ -8,6 +8,7 @@ import br.com.zeroesjobs.repository.CandidatoRepository;
 import br.com.zeroesjobs.repository.RecrutadorRepository;
 import br.com.zeroesjobs.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -19,18 +20,21 @@ public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
     private final CandidatoRepository candidatoRepository;
     private final RecrutadorRepository recrutadorRepository;
+    private final PasswordEncoder codificadorDeSenhas;
 
     // Construtor padrão
     @Autowired
-    public UsuarioService(UsuarioRepository usuarioRepository, CandidatoRepository candidatoRepository, RecrutadorRepository recrutadorRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository, CandidatoRepository candidatoRepository, RecrutadorRepository recrutadorRepository, PasswordEncoder codificadorDeSenhas) {
         this.usuarioRepository = usuarioRepository;
         this.candidatoRepository = candidatoRepository;
         this.recrutadorRepository = recrutadorRepository;
+        this.codificadorDeSenhas = codificadorDeSenhas;
     }
 
     public Usuario adicionar(Usuario usuario) {
         usuario.setAtivo(true);
         usuario.setDataCadastro(new Date(System.currentTimeMillis()));
+        usuario.setSenha(codificadorDeSenhas.encode(usuario.getSenha()));
 
         Usuario usuarioSalvo = usuarioRepository.save(usuario);
         int usuarioTipoId = usuario.getUsuarioId();
