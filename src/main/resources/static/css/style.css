@@ -1,0 +1,57 @@
+.fundo {
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.conteudo {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo_esquerda {
+  font-size: 1.4rem;
+  color: white;
+  margin-left: 30px;
+  margin-top: 1.8rem;
+}
+
+.logo_direita {
+  padding-top: 1.8rem;
+  display: flex;
+  font-size: 1rem;
+  color: white;
+  margin-right: 50px;
+}
+
+.logo_direita .candidato-login-btn {
+  padding: 10px;
+  border-radius: 0.45rem;
+  background-color: #fb4f14;
+  margin-right: 0.5rem;
+}
+
+.logo_direita .recrutador-login-btn {
+  padding: 10px;
+  border-radius: 0.45rem;
+  background-color: #002244;
+}
+
+.campo-pesquisa {
+  position: absolute;
+  top: calc(50% - 30px);
+  left: 10%;
+  height: 60px;
+  width: 80%;
+}
+
+.box {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+}
