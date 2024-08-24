@@ -1,56 +1,57 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <title>Login • Zeroes Jobs</title>
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/font-awesome.min.css}"/>
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/styles.css}"/>
-    <meta charset="ISO-8859-1">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} " />
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/font-awesome.min.css}" />
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/styles.css}" />
 </head>
 
-<body class="background">
-<nav class="main_div">
-    <div class="logo_left">
-        <label class="logo">
-            zeroesjobs
-        </label>
-    </div>
-    <div class="logo_right">
-        <label class="candidato-login-btn">
-            <a th:href="@{/login}">
-                Login Candidato
-            </a>
-            <a th:href="@{/cadastro}">
-                /cadastro
-            </a>
-        </label>
-        <label class="recrutador-login-btn">
-            <a th:href="@{/login}">
-                Login Recrutador
-            </a>
-            <a th:href="@{/cadastro}">
-                /cadastro
-            </a>
-
-        </label>
-    </div>
-</nav>
-<form th:action="@{/pesquisar/}">
-    <div class="campo-pesquisa">
-        <div class="inner">
-
-            <input type="text" placeholder="Procurar uma vaga" name="job" th:value="${vaga}"/>
-            <input type="text" placeholder="Digite uma localidade" name="location" th:value="${localidade}"/>
-            <button type="submit"><i class="fa fa-search"></i></button>
-
+<body class="fundo">
+    <nav class="conteudo">
+        <div class="logo_esquerda">
+            <label class="logo">
+                Zeroes Jobs
+            </label>
         </div>
-    </div>
-</form>
-<footer>
-    <label class="copyright">Copyright © Kelvin Hey</label>
-</footer>
+
+        <div class="logo_direita">
+            <label class="candidato-login-btn">
+                <a th:href="@{/login}">
+                    Login Candidato
+                </a>
+                <a th:href="@{/cadastrar}">
+                    /cadastrar
+                </a>
+            </label>
+            <label class="recrutador-login-btn">
+                <a th:href="@{/login}">
+                    Login Recrutador
+                </a>
+                <a th:href="@{/cadastrar}">
+                    /Cadastrar
+                </a>
+            </label>
+        </div>
+    </nav>
+
+    <form th:action="@{/pesquisar/}">
+        <div class="campo-pesquisa">
+            <div class="box">
+                <input type="text" placeholder="Procurar uma vaga" name="job" th:value="${vaga}" />
+                <input type="text" placeholder="Digite uma localidade" name="location" th:value="${localidade}" />
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <footer>
+        <label class="copyright">Copyright © Kelvin Hey</label>
+    </footer>
 </body>
 
 <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
