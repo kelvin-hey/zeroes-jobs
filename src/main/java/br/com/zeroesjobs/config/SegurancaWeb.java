@@ -55,7 +55,7 @@ public class SegurancaWeb {
                         .successHandler(autenticacao))
                         .logout(logout-> {
                             logout.logoutUrl("/logout");
-                            logout.logoutSuccessUrl("/");
+                                logout.logoutSuccessUrl("/");
                         }).cors(Customizer.withDefaults())
                         .csrf(csrf->csrf.disable());
 
