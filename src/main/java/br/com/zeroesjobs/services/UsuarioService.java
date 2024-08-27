@@ -8,6 +8,11 @@ import br.com.zeroesjobs.repository.CandidatoRepository;
 import br.com.zeroesjobs.repository.RecrutadorRepository;
 import br.com.zeroesjobs.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +51,29 @@ public class UsuarioService {
         }
 
         return usuarioSalvo;
+    }
+
+    public Object getPerfilUsuarioAtual() {
+
+        Authentication autenticacao = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!(autenticacao instanceof AnonymousAuthenticationToken)) {
+            String nomeUsuario = autenticacao.getName();
+            Usuario usuario = usuarioRepository
+                    .findByEmail(nomeUsuario)
+                    .orElseThrow(() -> new UsernameNotFoundException("Não foi possível encontrar o usuário"));
+            int usuarioId = usuario.getUsuarioId();
+
+            if (autenticacao.getAuthorities().contains(new SimpleGrantedAuthority("Recrutador"))) {
+                Recrutador recrutador = recrutadorRepository.findById(usuarioId).orElse(new Recrutador());
+                return recrutador;
+            } else {
+                Candidato candidato = candidatoRepository.findById(usuarioId).orElse(new Candidato());
+                return candidato;
+            }
+        }
+
+        return null;
     }
 
     public Optional<Usuario> getUsuarioEmail(String email) {
