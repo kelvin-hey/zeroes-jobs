@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Dashboard</title>
+  <meta charset="utf-8"/>
+
+  <meta name="description" content=""/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/styles.css}"/>
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+  <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+
+</head>
+
+<body>
+<header class="navbar navbar-expand-lg navbar-dark">
+  <label class="mt-2 ms-5 font-weight-bold h5">
+    <a th:href="@{/dashboard/}">Zeroes Jobs</a>
+  </label>
+
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarToggler">
+
+    <ul class="navbar-nav m-auto mt-2 mt-lg-0">
+      <li class="nav-item ativo">
+        <a sec:authorize="hasAuthority('Candidato')" class="nav-link" th:href="@{/dashboard/}">
+          <i class="fas fa-search"></i>Procurar Vaga
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a sec:authorize="hasAuthority('Candidato')" class="nav-link" th:href="@{/vagas-salvas/}">
+          <i class="fa-solid fa-eye"></i>Visualizar vagas salvas
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a sec:authorize="hasAuthority('Candidato')" class="nav-link" th:href="@{/candidadto/}">
+          <i class="fa-solid fa-pencil"></i>Editar perfil
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a sec:authorize="hasAuthority('Recrutador')" class="nav-link" th:href="@{/dashboard/adicionar-vaga}">
+          <i class="fa-solid fa-file-circle-plus"></i>Publicar nova vaga
+        </a>
+      </li>
+
+      <li class="nav-item ativo">
+        <a sec:authorize="hasAuthority('Recrutador')" class="nav-link" th:href="@{/dashboard/}">
+          <i class="fa-solid fa-eye"></i>Visualizar suas vagas
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a sec:authorize="hasAuthority('Recrutador')" class="nav-link" th:href="@{/recrutador/}">
+          <i class="fa-solid fa-pencil"></i>Editar conta</a>
+      </li>
+    </ul>
+
+    <label th:if="${usuario.nome != null && usuario.sobrenome != null}"
+           th:text="${usuario.nome+' '+usuario.sobrenome}"
+           class="nav-item nav-link px-2 me-3">
+    </label>
+
+    <label th:unless="${usuario.nome != null && usuario.sobrenome != null}"
+           th:text="${nomeUsuario}"
+           class="nav-item nav-link px-2 me-3">
+    </label>
+
+    <button class="botao-light me-5" onclick="window.location.href='/sair'">Sair</button>
+  </div>
+</header>
+
+<section class="section">
+  <div class="sidenav px-5">
+  </div>
+  <article>
+    <div class="box" sec:authorize="hasAuthority('Recrutador')">
+      <h1 class="titulo-principal">Dashboard • Recrutador</h1>
+    </div>
+
+    <div class="box mt-3">
+      <label class="rotulo-grande px-3 mb-3" sec:authorize="hasAuthority('Candidato')">Resultados da Pesquisa</label>
+
+      <th:block th:each="vaga:${vaga}">
+        <a th:href="@{/detalhes-vaga/{id}(id=${vaga.vagaId})}" style="text-decoration: none; color: black">
+          <div onclick="window.location=/detalhes-vaga/{id}(id=${vaga.vagaId})" class="vaga-linha">
+            <div class="row">
+              <div class="col-md-4">
+                <label class="titulo-vaga text-left">
+                  [[${vaga.tituloVaga}]]
+                  <span class="titulo-span"
+                          sec:authorize="hasAuthority('Recrutador')"
+                          th:text="'('+ @{${vaga.candidaturas}}+' Candidaturas)'">(n° de candidatos)
+                  </span>
+                  <span class="titulo-span"
+                          sec:authorize="hasAuthority('Candidato')"
+                          th:if="${vaga.estaAtiva == true}">(Aplicada)
+                  </span>
+                  <span class="titulo-span"
+                          sec:authorize="hasAuthority('Candidato')"
+                          th:if="${vaga.estaSalva == true}">(Salva)
+                  </span>
+                </label>
+              </div>
+              <div class="col-md-4 text-center">
+                <label th:text="${vaga.vagaLocalidadeId.cidade+', '+ vaga.vagaLocalidadeId.estado}">
+                  Cidade e Estado
+                </label>
+              </div>
+              <div class="col-md-4 text-right">
+                <label th:text="@{${vaga.empresaId.nome}}">Empresa do Recrutador
+                </label>
+              </div>
+            </div>
+          </div>
+        </a>
+      </th:block>
+    </div>
+  </article>
+</section>
+
+<script type="text/javascript"
+        th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{/webjars/bootstrap/js/bootstrap.min.js}">
+</script>
+</body>
+</html>
