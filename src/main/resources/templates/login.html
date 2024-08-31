@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="row" style="margin-right:0">
+        <div class="col-md-6">
+            <div class="formulario" style="align-items:center">
+                <form th:action="@{/login}" th:object="${usuario}" method="post">
+                    <h1 class="text-center bold font-weight-bold mb-4">Fazer login no Sistema</h1>
+
+                    <div class="formulario-grupo">
+                        <input
+                                placeholder="Email"
+                                name="nomeUsuario"
+                                field="{email}"
+                                type="email"
+                                class="formulario-controle"
+                                required
+                        />
+                    </div>
+
+                    <div class="formulario-grupo">
+                        <input
+                                placeholder="Senha"
+                                name="senha"
+                                field="{senha}"
+                                type="password"
+                                class="formulario-controle"
+                                required
+                        />
+                    </div>
+
+                    <div class="clearfix mb-4">
+                        <label class="float-left form-check-label">
+                            <input type="checkbox"/>Lembrar senha
+                        </label>
+                        <a href="#" class="texto-vermelho float-right">Esqueceu a senha?</a>
+                    </div>
+
+                    <div class="formulario-grupo">
+                        <button type="submit" class="botao">Log in</button>
+                    </div>
+
+                    <p class="text-center">
+                        Novo usuário
+                        <a class="texto-vermelho" href="#" th:href="@{/cadastrar}">Cadastrar</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+
+</html>
