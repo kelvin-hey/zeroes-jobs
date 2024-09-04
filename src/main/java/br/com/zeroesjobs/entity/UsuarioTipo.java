@@ -29,19 +29,19 @@ public class UsuarioTipo {
     }
 
     /*** GETTERS / SETTERS ***/
-    public int getusuarioTipoId() {
+    public int getUsuarioTipoId() {
         return usuarioTipoId;
     }
 
-    public void setusuarioTipoId(int usuarioTipoId) {
+    public void setUsuarioTipoId(int usuarioTipoId) {
         this.usuarioTipoId = usuarioTipoId;
     }
 
-    public String getusuarioTipoNome() {
+    public String getUsuarioTipoNome() {
         return usuarioTipoNome;
     }
 
-    public void setusuarioTipoNome(String usuarioTipoNome) {
+    public void setUsuarioTipoNome(String usuarioTipoNome) {
         this.usuarioTipoNome = usuarioTipoNome;
     }
 

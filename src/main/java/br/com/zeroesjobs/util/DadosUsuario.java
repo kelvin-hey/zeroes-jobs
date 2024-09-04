@@ -22,7 +22,7 @@ public class DadosUsuario implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         UsuarioTipo usuarioTipo = usuario.getUsuarioTipoId();
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(usuarioTipo.getusuarioTipoNome()));
+        authorities.add(new SimpleGrantedAuthority(usuarioTipo.getUsuarioTipoNome()));
 
         return authorities;
     }
