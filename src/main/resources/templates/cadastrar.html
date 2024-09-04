@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link
+            th:rel="stylesheet"
+            th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "
+    />
+    <link
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+            th:href="@{/css/font-awesome.min.css}"
+    />
+    <link
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+            th:href="@{/css/styles.css}"
+    />
+    <link
+            href="https://fonts.googleapis.com/css?family=Montserrat"
+            rel="stylesheet"
+    />
+    <meta charset="UTF-8"/>
+    <title>Sign Up</title>
+</head>
+
+<body>
+<section class="content hidden-overflow">
+    <div class="row">
+        <div class="logo_esquerda mt-3 pt-4 ms-5 pl-5">
+            <h2 class="logo" style="color: white">
+                zeroesjobs
+            </h2>
+        </div>
+        <div class="col-6">
+            <div class="top-margin">
+                <div>
+                    <div class="d-flex justify-content-center mb-4">
+                        <h1>Cadastrar conta</h1>
+                    </div>
+
+                    <div class="formulario">
+                        <form th:action="@{/cadastrar/novo}" th:object="${usuario}" method="post">
+
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="formulario-grupo">
+                                            <input
+                                                    placeholder="Email"
+                                                    name="email"
+                                                    th:field="*{email}"
+                                                    type="email"
+                                                    style="width: 100%"
+                                                    class="formulario-controle"
+                                                    required
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="formulario-grupo">
+                                            <input
+                                                    min="8"
+                                                    placeholder="Senha"
+                                                    name="senha"
+                                                    th:field="*{senha}"
+                                                    type="password"
+                                                    class="formulario-controle"
+                                                    required
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 formulario-grupo">
+                                        <select required class="formulario-controle" th:field="*{usuarioTipoId}">
+                                            <th:block th:each="usuarioTipo :${getTipoUsuario}">
+                                                <option th:text="${usuarioTipo.usuarioTipoNome}"
+                                                        th:value="${usuarioTipo.usuarioTipoId}">
+                                                </option>
+                                            </th:block>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="row">
+                                    <div class="formulario-grupo mt-5 col-md-12">
+                                        <button type="submit" class="botao py-3">Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</html>
