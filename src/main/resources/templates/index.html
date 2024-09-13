@@ -4,26 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Login • Zeroes Jobs</title>
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} " />
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/font-awesome.min.css}" />
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" />
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
 </head>
 
 <body class="fundo">
-    <nav class="conteudo">
-        <div class="logo_esquerda">
-            <label class="logo">
-                Zeroes Jobs
-            </label>
-        </div>
+    <nav class="header">
+        <label class="logo">
+            Zeroes Jobs
+        </label>
 
-        <div class="logo_direita">
+        <div class="botoes-login">
             <label class="candidato-login-btn">
                 <a th:href="@{/login}">
                     Login Candidato
                 </a>
                 <a th:href="@{/cadastrar}">
-                    /cadastrar
+                    / Cadastrar
                 </a>
             </label>
             <label class="recrutador-login-btn">
@@ -31,7 +29,7 @@
                     Login Recrutador
                 </a>
                 <a th:href="@{/cadastrar}">
-                    /Cadastrar
+                    / Cadastrar
                 </a>
             </label>
         </div>
@@ -40,8 +38,8 @@
     <form th:action="@{/pesquisar/}">
         <div class="campo-pesquisa">
             <div class="box-pesquisa">
-                <input type="text" placeholder="Procurar uma vaga" name="job" th:value="${vaga}" />
-                <input type="text" placeholder="Digite uma localidade" name="location" th:value="${localidade}" />
+                <input type="text" placeholder="Procurar uma vaga" name="job" th:value="${vaga}"/>
+                <input type="text" placeholder="Digite uma localidade" name="location" th:value="${localidade}"/>
                 <button type="submit">
                     <i class="fa fa-search"></i>
                 </button>
@@ -50,8 +48,9 @@
     </form>
 
     <footer>
-        <label class="copyright">Copyright © Kelvin Hey</label>
+        <label class="copyright">© Kelvin Hey, 2024</label>
     </footer>
+
 </body>
 
 <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>

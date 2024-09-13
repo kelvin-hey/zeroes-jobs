@@ -7,10 +7,24 @@
   background-size: cover;
 }
 
-.conteudo {
+.top-margin {
+  margin-top: 25%;
+}
+
+.header,
+footer {
   color: white;
+  background: #242424;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.logo {
+  color: white;
+  padding: 24px;
 }
 
 .logo_esquerda {
@@ -20,29 +34,30 @@
   margin-top: 1.8rem;
 }
 
-.logo_direita {
-  padding-top: 1.8rem;
-  display: flex;
-  font-size: 1rem;
-  color: white;
-  margin-right: 50px;
+.botoes-login {
 }
 
-.logo_direita .candidato-login-btn {
+.candidato-login-btn {
   padding: 10px;
   border-radius: 0.45rem;
-  background-color: #fb4f14;
+  background-color: #f3ba2f;
   margin-right: 0.5rem;
 }
 
-.logo_direita .recrutador-login-btn {
+.recrutador-login-btn {
   padding: 10px;
   border-radius: 0.45rem;
-  background-color: #002244;
+  background-color: #ffffff;
+}
+
+.candidato-login-btn a,
+.recrutador-login-btn a{
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
 }
 
 .campo-pesquisa {
-  position: absolute;
   top: calc(50% - 30px);
   left: 10%;
   height: 60px;
@@ -161,7 +176,7 @@ ul.navbar-nav li.nav-item a {
 ul.navbar-nav li.nav-item.ativo a {
   color: #fb4f14 !important;
 }
-.navbar button.myBtn-light {
+.navbar button.botao-light {
   margin: 0 1.25rem;
 }
 a.nav-link > i {
@@ -189,4 +204,31 @@ a.nav-link > i {
 div.sidenav form .form-check {
   margin: 5px;
   font-weight: 300;
+}
+
+.formulario {
+  display: flex;
+  padding: 20px 0;
+  overflow-y: auto;
+  justify-content: center;
+}
+.formulario > form {
+  width: 80%;
+  height: 50%;
+}
+.formulario > form input {
+  padding: 15px 10px;
+  margin: 4px 0;
+  line-height: 140%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.formulario-grupo select.formulario-controle {
+  height: 54px !important;
+}
+
+a.texto-vermelho,
+a.texto-vermelho:hover {
+  color: #fb4f14;
 }
