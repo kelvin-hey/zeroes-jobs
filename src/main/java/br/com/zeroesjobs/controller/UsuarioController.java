@@ -55,6 +55,12 @@ public class UsuarioController {
         return "dashboard";
     }
 
+    @PostMapping("/cadastrar/novo")
+    public String cadastroUsuario(@Valid Usuario usuario) {
+        usuarioService.adicionar(usuario);
+        return "redirect:/dashboard";
+    }
+
     @GetMapping("/login")
     public String login() {
         return "login";
