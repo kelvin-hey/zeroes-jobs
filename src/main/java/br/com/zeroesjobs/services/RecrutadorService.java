@@ -20,4 +20,8 @@ public class RecrutadorService {
     public Optional<Recrutador> obter(Integer id) {
         return recrutadorRepository.findById(id);
     }
+
+    public Recrutador adicionar(Recrutador recrutador) {
+        return recrutadorRepository.save(recrutador);
+    }
 }
