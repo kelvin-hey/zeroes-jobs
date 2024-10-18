@@ -56,7 +56,7 @@ public class RecrutadorController {
         return "recrutador";
     }
 
-    @PostMapping
+    @PostMapping("/adicionar")
     public String adicionar(Recrutador recrutador, @RequestParam("image") MultipartFile multipartFile, Model model) {
 
         Authentication autenticacao = SecurityContextHolder.getContext().getAuthentication();
