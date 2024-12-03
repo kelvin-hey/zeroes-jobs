@@ -40,7 +40,7 @@ public class UsuarioController {
         return "cadastrar";
     }
 
-    @PostMapping("/cadastrar/novo")
+    @PostMapping("/cadastrar")
     public String cadastroUsuario(@Valid Usuario usuario, Model model) {
         Optional<Usuario> optionalUsuario = usuarioService.getUsuarioEmail(usuario.getEmail());
         if (optionalUsuario.isPresent()) {
