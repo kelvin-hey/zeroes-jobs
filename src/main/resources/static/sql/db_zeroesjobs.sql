@@ -6,7 +6,7 @@ USE db_zeroesjobs;
 /*** CRIAÇÃO DAS TABELAS ***/
 CREATE TABLE usuario_tipo (
   usuario_tipo_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  usuario_tipo_name varchar(255) DEFAULT NULL
+  usuario_tipo_nome varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB;
 
 INSERT INTO usuario_tipo VALUES (1,'Recrutador'),(2,'Candidato');
