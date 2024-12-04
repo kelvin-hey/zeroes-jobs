@@ -37,21 +37,29 @@ footer {
 .botoes-login {
 }
 
-.candidato-login-btn {
-  padding: 10px;
-  border-radius: 0.45rem;
+.login-btn {
+  border: 0px;
+  padding: 6px;
+  border-radius: 3px;
   background-color: #f3ba2f;
-  margin-right: 0.5rem;
+  margin-right: 6px;
 }
 
-.recrutador-login-btn {
-  padding: 10px;
-  border-radius: 0.45rem;
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadastrar-btn {
+  border: 0px;
+  padding: 6px;
+  border-radius: 3px;
   background-color: #ffffff;
 }
 
-.candidato-login-btn a,
-.recrutador-login-btn a{
+.login-btn a,
+.cadastrar-btn a {
   text-decoration: none;
   color: black;
   font-weight: 700;
@@ -62,6 +70,9 @@ footer {
   left: 10%;
   height: 60px;
   width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .box-pesquisa {

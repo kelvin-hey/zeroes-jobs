@@ -16,26 +16,16 @@
         </label>
 
         <div class="botoes-login">
-            <label class="candidato-login-btn">
-                <a th:href="@{/login}">
-                    Login Candidato
-                </a>
-                <a th:href="@{/cadastrar}">
-                    / Cadastrar
-                </a>
-            </label>
-            <label class="recrutador-login-btn">
-                <a th:href="@{/login}">
-                    Login Recrutador
-                </a>
-                <a th:href="@{/cadastrar}">
-                    / Cadastrar
-                </a>
-            </label>
+            <button class="login-btn">
+                <a th:href="@{/login}">Login</a>
+            </button>
+            <button class="cadastrar-btn">
+                <a th:href="@{/cadastrar}">Cadastrar</a>
+            </button>
         </div>
     </nav>
 
-    <form th:action="@{/pesquisar/}">
+    <form class="formulario" th:action="@{/pesquisar/}">
         <div class="campo-pesquisa">
             <div class="box-pesquisa">
                 <input type="text" placeholder="Procurar uma vaga" name="job" th:value="${vaga}"/>
