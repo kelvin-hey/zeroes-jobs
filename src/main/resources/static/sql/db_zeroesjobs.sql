@@ -56,6 +56,7 @@ CREATE TABLE candidato (
   estado varchar(255) DEFAULT NULL,
   pais varchar(255) DEFAULT NULL,
   nome varchar(255) DEFAULT NULL,
+  cpf varchar(255) DEFAULT NULL,
   sobrenome varchar(255) DEFAULT NULL,
   foto_perfil varchar(255) DEFAULT NULL,
   curriculo varchar(255) DEFAULT NULL,
